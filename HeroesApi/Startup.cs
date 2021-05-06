@@ -30,6 +30,10 @@ namespace HeroesApi
         {
 
             services.AddControllers();
+
+            //security stuff CORS
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HeroesApi", Version = "v1" });
@@ -59,6 +63,9 @@ namespace HeroesApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //More security CORS stuff (moet tussen routing (above) & authorization (below) )
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 

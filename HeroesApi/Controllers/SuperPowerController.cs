@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace HeroesApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]s")]
     public class SuperPowerController
     {
         private ISuperPowerService _service;
